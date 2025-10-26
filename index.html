@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musix Record - Jasa Aransemen Musik Profesional</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle" id="languageToggle">
+        <button class="lang-btn active" data-lang="id">ID</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3 data-i18n="sidebar.title">Musix Record</h3>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-content">
+            <!-- About Widget -->
+            <div class="widget">
+                <h3 class="widget-title" data-i18n="sidebar.about">Tentang Musix Record</h3>
+                <p data-i18n="sidebar.aboutText">Studio musik profesional dengan spesialisasi jasa aransemen, mixing, dan mastering untuk berbagai genre musik.</p>
+            </div>
+            
+            <!-- Popular Posts -->
+            <div class="widget">
+                <h3 class="widget-title" data-i18n="sidebar.popular">Popular Posts</h3>
+                <ul class="popular-posts">
+                    <li class="popular-post">
+                        <div class="post-thumb"></div>
+                        <div class="post-content">
+                            <h4 data-i18n="sidebar.post1.title">Tips Memilih Studio Recording Terbaik</h4>
+                            <span data-i18n="sidebar.post1.date">15 Maret 2023</span>
+                        </div>
+                    </li>
+                    <li class="popular-post">
+                        <div class="post-thumb"></div>
+                        <div class="post-content">
+                            <h4 data-i18n="sidebar.post2.title">Perbedaan Mixing dan Mastering</h4>
+                            <span data-i18n="sidebar.post2.date">10 Februari 2023</span>
+                        </div>
+                    </li>
+                    <li class="popular-post">
+                        <div class="post-thumb"></div>
+                        <div class="post-content">
+                            <h4 data-i18n="sidebar.post3.title">5 Software Produksi Musik Terbaik 2023</h4>
+                            <span data-i18n="sidebar.post3.date">5 Januari 2023</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Tags Cloud -->
+            <div class="widget">
+                <h3 class="widget-title" data-i18n="sidebar.tags">Labels Cloud</h3>
+                <div class="tags">
+                    <span class="tag" data-i18n="sidebar.tag1">Aransemen</span>
+                    <span class="tag" data-i18n="sidebar.tag2">Mixing</span>
+                    <span class="tag" data-i18n="sidebar.tag3">Mastering</span>
+                    <span class="tag" data-i18n="sidebar.tag4">Studio</span>
+                    <span class="tag" data-i18n="sidebar.tag5">Recording</span>
+                    <span class="tag" data-i18n="sidebar.tag6">Audio</span>
+                    <span class="tag" data-i18n="sidebar.tag7">Produksi</span>
+                    <span class="tag" data-i18n="sidebar.tag8">Musik</span>
+                </div>
+            </div>
+            
+            <!-- Categories -->
+            <div class="widget">
+                <h3 class="widget-title" data-i18n="sidebar.categories">Kategori Layanan</h3>
+                <ul class="categories">
+                    <li class="category">
+                        <span data-i18n="sidebar.category1.name">Aransemen Musik</span>
+                        <span>15</span>
+                    </li>
+                    <li class="category">
+                        <span data-i18n="sidebar.category2.name">Mixing</span>
+                        <span>23</span>
+                    </li>
+                    <li class="category">
+                        <span data-i18n="sidebar.category3.name">Mastering</span>
+                        <span>18</span>
+                    </li>
+                    <li class="category">
+                        <span data-i18n="sidebar.category4.name">Recording</span>
+                        <span>12</span>
+                    </li>
+                    <li class="category">
+                        <span data-i18n="sidebar.category5.name">Konsultasi</span>
+                        <span>7</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- You May Like -->
+            <div class="widget">
+                <h3 class="widget-title" data-i18n="sidebar.youMayLike">You May Like</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="sidebar.link1">Studio Recording Jakarta</span></a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="sidebar.link2">Jasa Aransemen Lagu Pop</span></a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="sidebar.link3">Mixing dan Mastering Online</span></a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="sidebar.link4">Kursus Produksi Musik</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Cover Section -->
+    <section class="cover" id="cover">
+        <div class="time-display" id="timeDisplay"></div>
+        
+        
+        <!-- Menu Button dengan Dropdown -->
+        <div class="menu-container">
+            <button class="menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#about" class="dropdown-item">
+                    <i class="fas fa-info-circle"></i>
+                    <span data-i18n="menu.about">Tentang Kami</span>
+                </a>
+                <a href="#pricing" class="dropdown-item">
+                    <i class="fas fa-tags"></i>
+                    <span data-i18n="menu.pricing">Daftar Harga</span>
+                </a>
+                <a href="#process" class="dropdown-item">
+                    <i class="fas fa-cogs"></i>
+                    <span data-i18n="menu.process">Cara Pemesanan</span>
+                </a>
+                <a href="#documentation" class="dropdown-item">
+                    <i class="fas fa-images"></i>
+                    <span data-i18n="menu.documentation">Dokumentasi</span>
+                </a>
+                <a href="#instagram" class="dropdown-item">
+                    <i class="fab fa-instagram"></i>
+                    <span data-i18n="menu.instagram">Instagram</span>
+                </a>
+                <a href="#achievements" class="dropdown-item">
+                    <i class="fas fa-trophy"></i>
+                    <span data-i18n="menu.achievements">Prestasi</span>
+                </a>
+                <a href="#contact" class="dropdown-item">
+                    <i class="fas fa-phone"></i>
+                    <span data-i18n="menu.contact">Kontak</span>
+                </a>
+                <a href="#comments" class="dropdown-item">
+                    <i class="fas fa-comments"></i>
+                    <span data-i18n="menu.comments">Komentar</span>
+                </a>
+                <a href="#download" class="dropdown-item">
+                    <i class="fas fa-download"></i>
+                    <span data-i18n="menu.download">Download Brosur</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="cover-content">
+            <img src="/Photos/Musix record.jpg" alt: ="Musix Record" style="position:relative; width:100%; height:auto; ">
+            <h1 data-i18n="cover.title">Musix Record</h1>
+            <p data-i18n="cover.subtitle">Jasa Aransemen, Mixing & Mastering Musik Profesional</p>
+            <a href="#pricing" class="btn" data-i18n="cover.button">Lihat Harga</a>
+        </div>
+        
+        <!-- Social Media Menu -->
+        <div class="social-menu">
+            <div class="social-toggle" id="socialToggle">
+                <i class="fas fa-share-alt"></i>
+            </div>
+            <div class="social-icons" id="socialIcons">
+                <a href="https://www.instagram.com/_musik.gram/" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@musikgram123" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://open.spotify.com/playlist/1GO8h3Lqg7CLrt12l88XIY?si=b38e07a3618f45ce" title="Spotify"><i class="fab fa-spotify"></i></a>
+                <a href="https://soundcloud.com/indra-nur-muhammad/sets/musixrecord" title="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+                <a href="facebook.com/musikgrammusik" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/6281320682233" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.app.goo.gl/Z7JRHZJi6beAKk9r8" title="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
+                <a href="#" title="Gallery"><i class="fas fa-images"></i></a>
+            </div>
+        </div>
+        
+        <div class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </section>
+    
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img href="#cover" src="/Photos/Musix Record.svg" alt="Musix Record Logo" class="logo-img" >
+            <h2 data-i18n="header.title">Musix Record</h2>
+        </div>
+        <nav>
+            <a href="#about" class="nav-link" data-i18n="header.about">Tentang</a>
+            <a href="#pricing" class="nav-link" data-i18n="header.pricing">Harga</a>
+            <a href="#contact" class="nav-link" data-i18n="header.contact">Kontak</a>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- About Section -->
+            <section id="about" class="section">
+                <h2 class="section-title" data-i18n="about.title">Tentang Musix Record</h2>
+                <div class="about-content">
+                    <p data-i18n="about.text1">Musix Record adalah studio musik profesional yang berfokus pada jasa aransemen, mixing, dan mastering. Dengan pengalaman sejak 2008, lebih dari 17 tahun di industri musik, kami telah membantu puluhan musisi dan artis mewujudkan karya musik mereka dengan kualitas terbaik.</p>
+                    <p data-i18n="about.text2">Tim kami terdiri dari sound engineer dan musisi berpengalaman yang memahami kebutuhan artistik dan teknis dalam produksi musik. Kami menggunakan peralatan dan software terbaru untuk memastikan hasil yang maksimal.</p>
+                    <p data-i18n="about.text3">Visi kami adalah menjadi partner terpercaya bagi musisi Indonesia dalam menciptakan karya musik berkualitas dunia.</p>
+                    <p data-i18n="about.text4">Musix Record yang berasal di Komplek Puri Tirta Kencana Jalan Achmad Yani No. 730 Kota Bandung (sekarang di Kapten Jamhur No. 73A - Kota Banjar - Jawa Barat Indonesia). Menerima jasa pembuatan lagu / musik:</p>
+                    <li data-i18n="about.text4List1">Ilustrasi,iklan, aransemen, minusone / karaoke, jingle, hymne, mars, dll.</li>
+                    <li data-i18n="about.text4List2">Format audio dan score (partitur / not balok /  not angka) untuk berbagai instrumen musik vocal, duet, trio, kuartet, hingga orkestra.</li>
+                    <br>
+                    <p data-i18n="about.text5">Percayakan dengan pembuatan musik kami yang sudah berpengalaman studi di bidang pendidikan seni musik dan berpengalaman dalam pemesanan pembuatan musik dengan biaya terjangkau berkualitas baik.</p>
+                    <p data-i18n="about.text6">Kami juga menerima jasa mixing, mastering lagu / musik, dan juga menerima jasa kursus musik privat / home teaching (datang ke rumah sekitar Kota Banjar) untuk berbagai instrumen musik.</p>
+                    <p data-i18n="about.text7">Menyewakan Sound System (dengan paket hemat), alat musik gitar elektrik, bass elektrik, drum elektrik, piano elektrik, dan lain-lain. </p>
+                    <br>
+                    <p data-i18n="about.text7" style="font-size: small;">*pembuatan musik <strong> tidak </strong> sepenuhnya menggunakan AI (artificial intelligence) lebih mengutamakan <strong>Manusiawi (Humanize)</strong>.</p>
+                </div>
+            </section>
+            
+            <!-- Pricing Section -->
+            <section id="pricing" class="section">
+                <h2 class="section-title" data-i18n="pricing.title">Daftar Harga</h2>
+                <div class="pricing-table">
+                    <div class="pricing-card">
+                        <h3 data-i18n="pricing.notation.title">Paket Notasi</h3>
+                        <p data-i18n="pricing.subtitle" style="font-size: smaller;"> mulai dari</p>
+                        <div class="price">Rp 100.000<span data-i18n="pricing.perSong">/lagu</span></div>
+                        <p style="font-size: smaller; position: relative; left: 55px; bottom: 10px;"> -600.000 </p>
+                        <ul class="features">
+                            <li data-i18n="pricing.notation.feature1">Pembuatan Notasi:</li>
+                            <li data-i18n="pricing.notation.feature2">tulis/transkrip/lirik/angka/balok/midi/sequencer</li>
+                            <li data-i18n="pricing.notation.feature3">5 track</li>
+                            <li data-i18n="pricing.notation.feature4">Revisi 4x</li>
+                            <li data-i18n="pricing.notation.feature5">Waktu pengerjaan 7 hari</li>
+                            <li data-i18n="pricing.notation.feature6">Konsultasi gratis</li>
+                            <p data-i18n="pricing.note" style="font-size: small;"> *harga tergantung tingkat kesulitan & permintaan aransemen</p>
+                        </ul>
+                        <a href="#contact" class="btn" data-i18n="pricing.button">Pesan Sekarang</a>
+                    </div>
+
+
+                    <div class="pricing-card">
+                        <h3 data-i18n="pricing.student.title">Paket Pelajar Sekolah</h3>
+                        <p data-i18n="pricing.subtitle" style="font-size: smaller;"> mulai dari</p>
+                        <div class="price">Rp 100.000<span data-i18n="pricing.perSong">/lagu</span></div>
+                        <p style="font-size: smaller; position: relative; left: 55px; bottom: 10px;"> -300.000 </p>
+                        <ul class="features">
+                            <li data-i18n="pricing.student.feature1">Aransemen mudah</li>
+                            <li data-i18n="pricing.student.feature2">5 track</li>
+                            <li data-i18n="pricing.student.feature3">Revisi 2x</li>
+                            <li data-i18n="pricing.student.feature4">Waktu pengerjaan 7 hari</li>
+                            <li data-i18n="pricing.student.feature6">Konsultasi gratis</li>
+                            <p data-i18n="pricing.note" style="font-size: small;"> *harga tergantung tingkat kesulitan & permintaan aransemen</p>
+                        </ul>
+                        <a href="#contact" class="btn" data-i18n="pricing.button">Pesan Sekarang</a>
+                    </div>    
+
+
+                    <div class="pricing-card">
+                        <h3 data-i18n="pricing.basic.title">Paket Basic</h3>
+                        <p data-i18n="pricing.subtitle" style="font-size: smaller;"> mulai dari</p>
+                        <div class="price">Rp 300.000<span data-i18n="pricing.perSong">/lagu</span></div>
+                        <p style="font-size: smaller; position: relative; left: 55px; bottom: 10px;"> -900.000 </p>
+                        <ul class="features">
+                            <li data-i18n="pricing.basic.feature1">Aransemen sederhana</li>
+                            <li data-i18n="pricing.basic.feature2">Aransemen & Mixing 8 track</li>
+                            <li data-i18n="pricing.basic.feature3">Revisi 2x</li>
+                            <li data-i18n="pricing.basic.feature4">Waktu pengerjaan 7 hari</li>
+                            <li data-i18n="pricing.basic.feature6">Konsultasi gratis</li>
+                            <p data-i18n="pricing.note" style="font-size: small;"> *harga tergantung tingkat kesulitan & permintaan aransemen</p>
+                        </ul>
+                        <a href="#contact" class="btn" data-i18n="pricing.button">Pesan Sekarang</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3 data-i18n="pricing.standard.title">Paket Standard</h3>
+                        <p data-i18n="pricing.subtitle" style="font-size: smaller;"> mulai dari</p>
+                        <div class="price">Rp 850.000<span data-i18n="pricing.perSong">/lagu</span></div>
+                        <p style="font-size: smaller; position: relative; left: 55px; bottom: 10px;"> -1.500.000 </p>
+                        <ul class="features">
+                            <li data-i18n="pricing.standard.feature1">Aransemen menengah</li>
+                            <li data-i18n="pricing.standard.feature2">Mixing 16 track</li>
+                            <li data-i18n="pricing.standard.feature3">Mastering dasar</li>
+                            <li data-i18n="pricing.standard.feature4">Revisi 3x</li>
+                            <li data-i18n="pricing.standard.feature5">Waktu pengerjaan 7 hari</li>
+                            <li data-i18n="pricing.standard.feature6">Konsultasi gratis</li>
+                            <p data-i18n="pricing.note" style="font-size: small;"> *harga tergantung tingkat kesulitan & permintaan aransemen</p>
+                        </ul>
+                        <a href="#contact" class="btn" data-i18n="pricing.button">Pesan Sekarang</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3 data-i18n="pricing.premium.title">Paket Premium</h3>
+                        <p data-i18n="pricing.subtitle" style="font-size: smaller;"> mulai dari</p>
+                        <div class="price" style="font-size:xx-large;">Rp 1.500.000<span data-i18n="pricing.perSong">/lagu</span></div>
+                        <p style="font-size: smaller; position: relative; left: 55px; bottom: 5px;"> -1.900.000 </p>
+                        <ul class="features">
+                            <li data-i18n="pricing.premium.feature1">Aransemen lengkap</li>
+                            <li data-i18n="pricing.premium.feature2">Mixing unlimited track</li>
+                            <li data-i18n="pricing.premium.feature3">Mastering profesional</li>
+                            <li data-i18n="pricing.premium.feature4">Revisi 5x</li>
+                            <li data-i18n="pricing.premium.feature5">Waktu pengerjaan 5 hari</li>
+                            <li data-i18n="pricing.premium.feature6">Konsultasi gratis</li>
+                            <p data-i18n="pricing.note" style="font-size: small;"> *harga tergantung tingkat kesulitan & permintaan aransemen</p>
+                        </ul>
+                        <a href="#contact" class="btn" data-i18n="pricing.button">Pesan Sekarang</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3 data-i18n="pricing.release.title">Paket Rilis Musik</h3>
+                        <p data-i18n="pricing.subtitle" style="font-size: smaller;"> mulai dari</p>
+                        <div class="price" style="font-size:xx-large;">Rp 99.900<span data-i18n="pricing.perSong">/lagu</span></div>
+                        <p style="font-size: smaller; position: relative; left: 55px; bottom: 5px;"> -200.000 </p>
+                        <ul class="features">
+                            <li data-i18n="pricing.release.feature1">Beberapa-seluruh Platform Musik</li>
+                            <li data-i18n="pricing.release.feature2">Distribusikan musik secara digital ke tingkat Internasional</li>
+                            <li data-i18n="pricing.release.feature3">Mendapatkan hak cipta dan copyright</li>
+                            <li data-i18n="pricing.release.feature4">Tanpa biaya tahunan</li>
+                            <li data-i18n="pricing.release.feature5">Waktu pengerjaan 1-2 Minggu</li>
+                            <li data-i18n="pricing.release.feature6">Konsultasi gratis</li>
+                            <p data-i18n="pricing.note" style="font-size: small;"> *syarat, ketentuan, & harga tergantung pihak ke-3</p>
+                        </ul>
+                        <a href="#contact" class="btn" data-i18n="pricing.button">Pesan Sekarang</a>
+                    </div>
+                            <div class="pricing-card">
+                        <h3 data-i18n="pricing.soundsystem.title">Paket Hemat Sewa Sound System</h3>
+                        <p data-i18n="pricing.subtitle" style="font-size: smaller;"> mulai dari</p>
+                        <div class="price" style="font-size:xx-large;">Rp 1.000.000<span data-i18n="pricing.perSong">/lagu</span></div>
+                        <p style="font-size: smaller; position: relative; left: 55px; bottom: 5px;"> -2.500.000 </p>
+                        <ul class="features">
+                            <li data-i18n="pricing.soundsystem.feature1">Band, Hibuaran, Karaoke, Acara Sekolah & Kampus</li>
+                            <li data-i18n="pricing.soundsystem.feature2">🔊 Main front Speaker <br> 🔊 Speaker high 8" & tweeter (2 unit) <br> 🔊 Speaker Middle 12"+15” (2 unit) <br> 🔊 Speaker SubWoofer 15" (1 unit) <br> 🎚️ Mixing console (12ch) <br> 🎤 Wireless Microphone (2-4 unit) <br> 🎧 Include Sound Man <br> 🔌 Unit Power (6000 Watt) (Hubungi)</li>
+                            <li data-i18n="pricing.soundsystem.feature3">/1x event</li>
+                            <li data-i18n="pricing.soundsystem.feature4">Paket Hemat</li>
+                            <li data-i18n="pricing.soundsystem.feature5">Area Cakupan Kota Banjar & sekitarnya</li>
+                            <li data-i18n="pricing.soundsystem.feature6">Konsultasi gratis</li>
+                            <p data-i18n="pricing.soundsystem.note" style="font-size: small;"> *syarat, ketentuan, & harga tergantung permintaan Equipment</p>
+                        </ul>
+                        <a href="#contact" class="btn" data-i18n="pricing.button">Pesan Sekarang</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Process Section -->
+            <section id="process" class="section">
+                <h2 class="section-title" data-i18n="process.title">Teknis Pemesanan</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3 data-i18n="process.step1.title">Konsultasi</h3>
+                        <p data-i18n="process.step1.description">Diskusikan kebutuhan dan konsep musik Anda dengan tim kami</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3 data-i18n="process.step2.title">Pembayaran</h3>
+                        <p data-i18n="process.step2.description">Lakukan pembayaran DP 50% untuk memulai pengerjaan</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3 data-i18n="process.step3.title">Pengerjaan</h3>
+                        <p data-i18n="process.step3.description">Tim kami akan mengerjakan aransemen sesuai kesepakatan</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3 data-i18n="process.step4.title">Revisi</h3>
+                        <p data-i18n="process.step4.description">Berikan masukan untuk revisi sesuai paket yang dipilih</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <h3 data-i18n="process.step5.title">Finalisasi</h3>
+                        <p data-i18n="process.step5.description">Lunasi pembayaran dan terima hasil akhir karya musik Anda</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Documentation Section -->
+            <section id="documentation" class="section">
+                <h2 class="section-title" data-i18n="documentation.title">Dokumentasi</h2>
+    <!-- Navigation Header -->
+    <nav class="gallery-nav">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Kembali ke Beranda</span>
+        </a>
+        <h1>Gallery Musix Record</h1>
+        <div class="gallery-controls">
+            <button class="refresh-btn" id="refreshBtn">
+                <i class="fas fa-sync-alt"></i>
+                <span>Refresh Data</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="gallery-filter">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="music production">Music Production</button>
+            <button class="filter-btn" data-filter="equipment">Equipment</button>
+            <button class="filter-btn" data-filter="session">Recording Session</button>
+            <button class="filter-btn" data-filter="live">Live Performance</button>
+            <button class="filter-btn" data-filter="client">Client Session</button>
+        </div>
+
+        <div class="media-type-toggle">
+            <button class="media-type-btn active" data-type="all">
+                <i class="fas fa-th"></i>
+                <span>Semua</span>
+            </button>
+            <button class="media-type-btn" data-type="image">
+                <i class="fas fa-image"></i>
+                <span>Foto</span>
+            </button>
+            <button class="media-type-btn" data-type="video">
+                <i class="fas fa-video"></i>
+                <span>Video</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Gallery Content -->
+    <main class="gallery-container">
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Media items will be loaded dynamically -->
+        </div>
+    </main>
+
+    <!-- Lightbox Modal for Images -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav lightbox-next" id="lightboxNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <div class="lightbox-media" id="lightboxMedia">
+                <!-- Image content will be inserted here -->
+            </div>
+            
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDescription"></p>
+                <div class="lightbox-meta">
+                    <span class="media-type-badge" id="lightboxType"></span>
+                    <span class="media-date" id="lightboxDate"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal for YouTube -->
+    <div id="videoModal" class="video-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <button class="video-nav video-prev" id="videoPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="video-nav video-next" id="videoNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <div class="video-wrapper">
+                <iframe id="youtubePlayer" frameborder="0" allowfullscreen></iframe>
+            </div>
+            
+            <div class="video-info">
+                <h3 id="videoTitle">Judul Video</h3>
+                <p id="videoDescription">Deskripsi video akan muncul di sini</p>
+                <div class="video-meta">
+                    <span class="media-type-badge video">Video YouTube</span>
+                    <span class="media-date" id="videoDate"></span>
+                    <span class="video-counter" id="videoCounter"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+        <p>Memuat gallery...</p>
+    </div>
+
+    <!-- Connection Status -->
+    <div class="connection-status" id="connectionStatus">
+        <i class="fas fa-wifi"></i>
+        <span>Terhubung</span>
+    </div>
+
+    <script src="gallery.js"></script>
+            </section>
+            
+            <!-- Instagram Section -->
+            <section id="instagram" class="section">
+                <h2 class="section-title" data-i18n="instagram.title">Instagram</h2>
+                <div class="instagram-feed">
+                    <div class="instagram-post">Post 1</div>
+                    <div class="instagram-post">Post 2</div>
+                    <div class="instagram-post">Post 3</div>
+                    <div class="instagram-post">Post 4</div>
+                    <div class="instagram-post">Post 5</div>
+                    <div class="instagram-post">Post 6</div>
+                </div>
+            </section>
+            
+            <!-- Achievements Section -->
+            <section id="achievements" class="section">
+                <h2 class="section-title" data-i18n="achievements.title">Prestasi</h2>
+                <div class="achievements">
+                    <div class="achievement">
+                        <i class="fas fa-trophy"></i>
+                        <h3 data-i18n="achievements.item1.title">100+ Project</h3>
+                        <p data-i18n="achievements.item1.description">Lebih dari 100 project musik telah diselesaikan</p>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-users"></i>
+                        <h3 data-i18n="achievements.item2.title">50+ Klien</h3>
+                        <p data-i18n="achievements.item2.description">Dipercaya oleh lebih dari 50 musisi dan artis</p>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-star"></i>
+                        <h3 data-i18n="achievements.item3.title">Rating 4.9/5</h3>
+                        <p data-i18n="achievements.item3.description">Kepuasan klien dengan rating hampir sempurna</p>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-award"></i>
+                        <h3 data-i18n="achievements.item4.title">5 Penghargaan</h3>
+                        <p data-i18n="achievements.item4.description">Penghargaan di bidang produksi musik</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <h2 class="section-title" data-i18n="contact.title">Kontak Kami</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h3 data-i18n="contact.whatsapp">WhatsApp</h3>
+                            <p>+62 81-320-68-2233</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3 data-i18n="contact.email">Email</h3>
+                            <p>musixrecord123@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3 data-i18n="contact.location">Lokasi</h3>
+                            <p data-i18n="contact.address">Kota Banjar No.73A, Jawa Barat, Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3 data-i18n="contact.hours">Jam Operasional</h3>
+                            <p data-i18n="contact.hoursDetail">Senin - Sabtu: 09:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-whatsapp">
+                <a href="https://wa.me/6281320682233" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> 
+                    <span data-i18n="contact.whatsappButton">Hubungi via WhatsApp</span>
+                </a>
+                </div>
+            </section>
+            
+    <!-- Comments Section -->
+    <section id="comments">
+        <div class="container">
+            <h2 class="section-title">Komentar Klien</h2>
+            <div class="comments-section">
+                <div class="comment-form">
+                    <h3>Tinggalkan Komentar</h3>
+                    <form id="commentForm">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Nama Anda *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email (opsional, tidak ditampilkan)">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="whatsapp" class="form-control" placeholder="WhatsApp (opsional, tidak ditampilkan)">
+                        </div>
+                        <div class="form-group">
+                            <div class="rating-input">
+                                <div class="rating-label">Beri Rating:</div>
+                                <div class="rating-stars">
+                                    <span class="rating-star" data-rating="1" title="1 Bintang">⭐</span>
+                                    <span class="rating-star" data-rating="2" title="2 Bintang">⭐</span>
+                                    <span class="rating-star" data-rating="3" title="3 Bintang">⭐</span>
+                                    <span class="rating-star" data-rating="4" title="4 Bintang">⭐</span>
+                                    <span class="rating-star active" data-rating="5" title="5 Bintang">⭐</span>
+                                </div>
+                                <input type="hidden" name="rating" value="⭐⭐⭐⭐⭐">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="comment" class="form-control" placeholder="Komentar Anda *" required rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-paper-plane"></i> Kirim Komentar
+                        </button>
+                    </form>
+                </div>
+                
+                <div id="comments-container">
+                    <div class="loading-comments">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Memuat komentar...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer dan lainnya... -->
+
+    <script src="js/script.js"></script>
+    <script src="js/google-sheets.js"></script>
+
+            
+            <!-- Download Section -->
+            <section id="download" class="section download-section">
+                <h2 class="section-title" data-i18n="download.title">Download Brosur</h2>
+                <p data-i18n="download.description">Download brosur lengkap kami untuk informasi lebih detail tentang layanan dan harga</p>
+                <a href="#" class="download-btn">
+                    <i class="fas fa-download"></i> 
+                    <span data-i18n="download.button">Download Brosur</span>
+                </a>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 data-i18n="footer.title">Musix Record</h3>
+                <p data-i18n="footer.description">Studio musik profesional dengan spesialisasi jasa aransemen, mixing, dan mastering untuk berbagai genre musik.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3 data-i18n="footer.quickLinks">Tautan Cepat</h3>
+                <ul class="footer-links">
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link1">Tentang Kami</span></a></li>
+                    <li><a href="#pricing"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link2">Daftar Harga</span></a></li>
+                    <li><a href="#process"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link3">Cara Pemesanan</span></a></li>
+                    <li><a href="#documentation"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link4">Dokumentasi</span></a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.link5">Kontak</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 data-i18n="footer.services">Layanan</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.service1">Aransemen Musik</span></a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.service2">Mixing Audio</span></a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.service3">Mastering</span></a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.service4">Recording</span></a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.service5">Konsultasi Musik</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3 data-i18n="footer.contact">Kontak</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">Kota Banjar No.73A, Jawa Barat, Indonesia</span></a></li>
+                    <li><a href="tel:+6281234567890"><i class="fas fa-phone"></i> +62 81-320-68-2233</a></li>
+                    <li><a href="mailto:info@musixrecord.com"><i class="fas fa-envelope"></i> musixrecord123@gmail.com</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> <span data-i18n="footer.hours">Senin - Sabtu: 09:00 - 18:00</span></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Musix Record. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+    
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+        <span data-i18n="theme.dark">Mode Gelap</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
