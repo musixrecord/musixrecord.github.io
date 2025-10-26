@@ -101,7 +101,24 @@ const translations = {
         'pricing.soundsystem.feature5': 'Area cakupan Banjar & sekitarnya',
         'pricing.soundsystem.feature6': 'Konsultasi gratis',
         'pricing.soundsystem.note': '*syarat, ketentuan, & harga tergantung permintaan Equipment',
+        'pricing.videoclip.title': 'Paket Video Clip',
+        'pricing.videoclip.feature1': 'Rekam video, edit video',
+        'pricing.videoclip.feature2': 'Video klip Musik, iklan, mars, hymne, pre wedding, hingga undangan',
+        'pricing.videoclip.feature3': '/1x lagu',
+        'pricing.videoclip.feature4': 'Paket hemat',
+        'pricing.videoclip.feature5': 'Area cakupan Banjar & sekitarnya',
+        'pricing.videoclip.feature6': 'Konsultasi gratis',
+        'pricing.videoclip.note': '*syarat, ketentuan, & harga tergantung permintaan Equipment',
+        'pricing.videoanime.title': 'Paket Video Animasi',
+        'pricing.videoanime.feature1': 'Lyric video, animasi Video 2D, 3D sederhana',
+        'pricing.videoanime.feature2': 'Video klip Musik, iklan, mars, hymne, pre wedding, hingga undangan',
+        'pricing.videoanime.feature3': '/1x lagu',
+        'pricing.videoanime.feature4': 'Revisi 5x',
+        'pricing.videoanime.feature5': 'Waktu pengerjaan 1-2 Minggu',
+        'pricing.videoanime.feature6': 'Konsultasi gratis',
+        'pricing.videoanime.note': '*syarat, ketentuan, & harga tergantung permintaan Equipment',
         
+
         // Process Section
         'process.title': 'Teknis Pemesanan',
         'process.step1.title': 'Konsultasi',
@@ -243,7 +260,7 @@ const translations = {
         'about.title': 'About Musix Record',
         'about.text1': 'Musix Record is a professional music studio that focuses on arrangement, mixing, and mastering services. With experience since 2008, more than 17 years in the music industry, we have helped dozens of musicians and artists realize their musical works with the highest quality.',
         'about.text2': 'Our team consists of experienced sound engineers and musicians who understand the artistic and technical needs in music production. We use the latest equipment and software to ensure optimal results.',
-        'about.text3': 'Our vision is to become a trusted partner for Indonesian musicians in creating world-class quality music works.',
+        'about.text3': 'Our vision is to become a trusted partner for Indonesian & International musicians in creating world-class quality music works.',
         'about.text4': 'Musix Record based in Komplek Puri Tirta Kencana Jalan Achmad Yani No. 730 Kota Bandung (now at Kapten Jamhur No. 73A - Kota Banjar - West Java Indonesia). Accepts song/music creation services:',
         'about.text4List1': 'Illustrations, advertisements, arrangements, minus one / karaoke, jingles, hymns, marches, etc.',
         'about.text4List2': 'Audio and score formats (sheet music / staff notation / numbered notation) for various musical instruments vocals, duets, trios, quartets, to orchestras.',
@@ -305,7 +322,7 @@ const translations = {
         'pricing.release.feature2': 'Unlimited track mixing',
         'pricing.release.feature3': 'Professional mastering',
         'pricing.release.feature4': '5 revisions',
-        'pricing.release.feature5': '5 days completion time',
+        'pricing.release.feature5': 'Completion time: 1-2 weeks',
         'pricing.release.feature6': 'Free consultation',
         'pricing.release.note': '*prices depend on the level of difficulty and demand for arrangements',
         'pricing.soundsystem.title': 'Release Package',
@@ -318,6 +335,22 @@ const translations = {
         'pricing.soundsystem.feature5': 'Coverage area of Banjar & surroundings',
         'pricing.soundsystem.feature6': 'Free consultation',
         'pricing.soundsystem.note': '*terms, conditions, & prices depend on Equipment requests',
+        'pricing.videoclip.title': 'Video Clip Package',
+        'pricing.videoclip.feature1': 'Record videos, edit videos',
+        'pricing.videoclip.feature2': 'Music videos, commercials, marches, hymns, pre-wedding videos, invitations',
+        'pricing.videoclip.feature3': '/1x event',
+        'pricing.videoclip.feature4': 'Economical package',
+        'pricing.videoclip.feature5': 'Coverage area of Banjar & surroundings',
+        'pricing.videoclip.feature6': 'Free consultation',
+        'pricing.videoclip.note': '*terms, conditions, & prices depend on Equipment requests',
+        'pricing.videoanime.title': 'Animated Video Package',
+        'pricing.videoanime.feature1': 'Lyric videos, simple 2D and 3D animated videos',
+        'pricing.videoanime.feature2': 'Music videos, commercials, marches, hymns, pre-wedding videos, invitations',
+        'pricing.videoanime.feature3': '/1x Song',
+        'pricing.videoanime.feature4': '5 revisions',
+        'pricing.videoanime.feature5': 'Completion time: 1-2 weeks',
+        'pricing.videoanime.feature6': 'Free consultation',
+        'pricing.videoanime.note': '*terms, conditions, & prices depend on Equipment requests',
 
         // Process Section
         'process.title': 'Order Process',
@@ -368,7 +401,7 @@ const translations = {
         // Comments Section
         'comments.title': 'Client Comments',
         'comments.login': 'Login with Google to comment',
-        'comments.commentLabel': 'Comment',
+        'comments.commentLabel': 'Add Comment',
         'comments.placeholder': 'Share your experience...',
         'comments.submit': 'Submit Comment',
         'comments.comment1': 'The arrangement results are amazing! Musix Record team is very professional and understands my needs. Recommended!',
@@ -774,40 +807,7 @@ socialToggle.addEventListener('click', () => {
     }
 });
 
-// Google Login Simulation
-const googleLogin = document.getElementById('googleLogin');
 
-googleLogin.addEventListener('click', () => {
-    alert('Fitur login dengan Google akan diintegrasikan dengan Google Sheets API untuk menyimpan komentar.');
-    
-    // Simulate successful login
-    googleLogin.innerHTML = '<i class="fab fa-google"></i> Terlogin dengan Google';
-    googleLogin.style.background = '#34A853';
-    googleLogin.style.color = 'white';
-    googleLogin.style.cursor = 'default';
-});
-
-// Comment Form
-// Rating Stars Interaction
-function initRatingStars() {
-    const ratingStars = document.querySelectorAll('.rating-star');
-    const ratingInput = document.querySelector('input[name="rating"]');
-    
-    ratingStars.forEach(star => {
-        star.addEventListener('click', function() {
-            const rating = parseInt(this.getAttribute('data-rating'));
-            
-            // Update active state
-            ratingStars.forEach(s => s.classList.remove('active'));
-            for (let i = 0; i < rating; i++) {
-                ratingStars[i].classList.add('active');
-            }
-            
-            // Update hidden input value
-            ratingInput.value = '⭐'.repeat(rating);
-        });
-    });
-}
 
 // Panggil di DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
