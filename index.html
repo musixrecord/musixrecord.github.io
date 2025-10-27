@@ -26,20 +26,6 @@
         <button class="lang-btn" data-lang="en">EN</button>
     </div>
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/67cdfc644817071910fce4d7/1iluc3l9n';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-
     <!-- Sidebar Toggle Button -->
     <button class="sidebar-toggle" id="sidebarToggle">
         <i class="fas fa-bars"></i>
@@ -151,6 +137,19 @@ s0.parentNode.insertBefore(s1,s0);
     <section class="cover" id="cover">
         <div class="time-display" id="timeDisplay"></div>
         
+        <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/67cdfc644817071910fce4d7/1iluc3l9n';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
         
         <!-- Menu Button dengan Dropdown -->
         <div class="menu-container">
@@ -238,7 +237,14 @@ s0.parentNode.insertBefore(s1,s0);
             <a href="#contact" class="nav-link" data-i18n="header.contact">Kontak</a>
         </nav>
     </header>
+
+<div class="connection-status" id="connectionStatus">
+    <i class="fas fa-wifi"></i>
+    <span>Terhubung</span>
+</div>
     
+
+
     <!-- Main Content -->
     <div class="container">
         <div class="main-content">
@@ -467,6 +473,60 @@ s0.parentNode.insertBefore(s1,s0);
         </div>
     </nav>
 
+<!-- Mobile Filter Toggle Button -->
+<div class="mobile-filter-toggle" id="mobileFilterToggle">
+    <i class="fas fa-sliders-h"></i>
+    <span>Filter</span>
+</div>
+
+<!-- Mobile Filter Overlay -->
+<div class="mobile-filter-overlay" id="mobileFilterOverlay">
+    <div class="mobile-filter-header">
+        <h3>Filter Gallery</h3>
+        <button class="mobile-filter-close" id="mobileFilterClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="mobile-filter-content">
+        <!-- Filter Categories -->
+        <div class="mobile-filter-group">
+            <h4>Kategori</h4>
+            <div class="mobile-filter-buttons">
+                <button class="mobile-filter-btn active" data-filter="all">Semua</button>
+                <button class="mobile-filter-btn" data-filter="music production">Music Production</button>
+                <button class="mobile-filter-btn" data-filter="equipment">Equipment</button>
+                <button class="mobile-filter-btn" data-filter="session">Recording Session</button>
+                <button class="mobile-filter-btn" data-filter="live">Live Performance</button>
+                <button class="mobile-filter-btn" data-filter="client">Client Session</button>
+            </div>
+        </div>
+        
+        <!-- Media Type Toggle -->
+        <div class="mobile-filter-group">
+            <h4>Tipe Media</h4>
+            <div class="mobile-media-type-toggle">
+                <button class="mobile-media-type-btn active" data-type="all">
+                    <i class="fas fa-th"></i>
+                    <span>Semua</span>
+                </button>
+                <button class="mobile-media-type-btn" data-type="image">
+                    <i class="fas fa-image"></i>
+                    <span>Foto</span>
+                </button>
+                <button class="mobile-media-type-btn" data-type="video">
+                    <i class="fas fa-video"></i>
+                    <span>Video</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Apply Button -->
+        <button class="mobile-filter-apply" id="mobileFilterApply">
+            Terapkan Filter
+        </button>
+    </div>
+</div>
     <!-- Filter Section -->
     <section class="filter-section">
         <div class="gallery-filter">
@@ -493,6 +553,8 @@ s0.parentNode.insertBefore(s1,s0);
             </button>
         </div>
     </section>
+
+    
 
     <!-- Main Gallery Content -->
     <main class="gallery-container">
@@ -562,15 +624,14 @@ s0.parentNode.insertBefore(s1,s0);
         <p>Memuat gallery...</p>
     </div>
 
-    <!-- Connection Status -->
-    <div class="connection-status" id="connectionStatus">
-        <i class="fas fa-wifi"></i>
-        <span>Terhubung</span>
-    </div>
+<!-- Connection Status -->
+
 
     <script src="gallery.js"></script>
 
             </section>
+
+            
             
             <!-- Instagram Section -->
             <section id="instagram" class="section">
@@ -601,12 +662,12 @@ s0.parentNode.insertBefore(s1,s0);
                     </div>
                     <div class="achievement">
                         <i class="fas fa-star"></i>
-                        <h3 data-i18n="achievements.item3.title">Rating 4.9/5</h3>
+                        <h3 data-i18n="achievements.item3.title">Rating 4.5/5</h3>
                         <p data-i18n="achievements.item3.description">Kepuasan klien dengan rating hampir sempurna</p>
                     </div>
                     <div class="achievement">
                         <i class="fas fa-award"></i>
-                        <h3 data-i18n="achievements.item4.title">5 Penghargaan</h3>
+                        <h3 data-i18n="achievements.item4.title">+10 Penghargaan</h3>
                         <p data-i18n="achievements.item4.description">Penghargaan di bidang produksi musik</p>
                     </div>
                 </div>

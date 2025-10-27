@@ -359,7 +359,7 @@ body.dark-theme .comment-text {
 
 /* Scroll to Top Button */
 .scroll-to-top {
-    position: fixed;
+    position: sticky;
     bottom: 30px;
     right: 30px;
     background: #3498db;

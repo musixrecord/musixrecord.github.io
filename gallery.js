@@ -197,43 +197,50 @@ class GalleryApp {
         this.setupMediaEventListeners();
     }
 
-    createMediaItem(media, index) {
-        const isVideo = media.type === 'video';
-        const youtubeId = media.youtube_id || this.extractYouTubeId(media.src);
-        const thumbnail = isVideo 
-            ? (media.thumbnail || `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`)
-            : media.thumbnail;
-        
-        if (isVideo) {
-            return `
-                <div class="video-item" data-category="${media.category}" data-index="${index}" data-youtube-id="${youtubeId}">
-                    <img src="${thumbnail}" alt="${media.title}" class="video-thumbnail" loading="lazy">
-                    <div class="video-play-button">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    ${media.duration ? `<span class="video-duration">${media.duration}</span>` : ''}
-                    <div class="video-overlay">
+createMediaItem(media, index) {
+    const isVideo = media.type === 'video';
+    const youtubeId = media.youtube_id || this.extractYouTubeId(media.src);
+    const thumbnail = isVideo 
+        ? (media.thumbnail || `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`)
+        : media.thumbnail;
+    
+    // Check if mobile device
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isVideo) {
+        return `
+            <div class="video-item" data-category="${media.category}" data-index="${index}" data-youtube-id="${youtubeId}">
+                <img src="${thumbnail}" alt="${media.title}" class="video-thumbnail" loading="lazy">
+                <div class="video-play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+                ${media.duration ? `<span class="video-duration">${media.duration}</span>` : ''}
+                <div class="video-overlay ${isMobile ? 'mobile-visible' : ''}">
+                    <div class="overlay-header">
                         <span class="gallery-category">${this.getCategoryName(media.category)}</span>
                         <span class="media-type-badge video">Video</span>
-                        <h3 class="gallery-title">${media.title}</h3>
-                        <p class="gallery-description">${media.description}</p>
                     </div>
+                    <h3 class="gallery-title">${media.title}</h3>
+                    <p class="gallery-description">${media.description}</p>
                 </div>
-            `;
-        } else {
-            return `
-                <div class="gallery-item" data-category="${media.category}" data-index="${index}">
-                    <img src="${thumbnail}" alt="${media.title}" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
+            </div>
+        `;
+    } else {
+        return `
+            <div class="gallery-item" data-category="${media.category}" data-index="${index}">
+                <img src="${thumbnail}" alt="${media.title}" class="gallery-image" loading="lazy">
+                <div class="gallery-overlay ${isMobile ? 'mobile-visible' : ''}">
+                    <div class="overlay-header">
                         <span class="gallery-category">${this.getCategoryName(media.category)}</span>
                         <span class="media-type-badge image">Foto</span>
-                        <h3 class="gallery-title">${media.title}</h3>
-                        <p class="gallery-description">${media.description}</p>
                     </div>
+                    <h3 class="gallery-title">${media.title}</h3>
+                    <p class="gallery-description">${media.description}</p>
                 </div>
-            `;
-        }
+            </div>
+        `;
     }
+}
 
     showEmptyState() {
         DOM.galleryGrid.innerHTML = `
@@ -421,6 +428,151 @@ class GalleryApp {
         });
     }
 
+// ===== MOBILE FILTER MANAGEMENT =====
+setupMobileFilter() {
+    this.mobileFilterToggle = document.getElementById('mobileFilterToggle');
+    this.mobileFilterOverlay = document.getElementById('mobileFilterOverlay');
+    this.mobileFilterClose = document.getElementById('mobileFilterClose');
+    this.mobileFilterApply = document.getElementById('mobileFilterApply');
+    this.mobileFilterBackdrop = document.createElement('div');
+    this.mobileFilterBackdrop.className = 'mobile-filter-backdrop';
+    document.body.appendChild(this.mobileFilterBackdrop);
+
+    // Event Listeners for mobile filter
+    this.mobileFilterToggle.addEventListener('click', () => this.openMobileFilter());
+    this.mobileFilterClose.addEventListener('click', () => this.closeMobileFilter());
+    this.mobileFilterApply.addEventListener('click', () => this.applyMobileFilter());
+    this.mobileFilterBackdrop.addEventListener('click', () => this.closeMobileFilter());
+
+    // Setup mobile filter buttons
+    this.setupMobileFilterButtons();
+    
+    // Swipe to close functionality
+    this.setupSwipeToClose();
+}
+
+setupMobileFilterButtons() {
+    // Category filter buttons
+    document.querySelectorAll('.mobile-filter-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelectorAll('.mobile-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+
+    // Media type buttons
+    document.querySelectorAll('.mobile-media-type-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelectorAll('.mobile-media-type-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+}
+
+setupSwipeToClose() {
+    let startX = 0;
+    let currentX = 0;
+
+    this.mobileFilterOverlay.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    this.mobileFilterOverlay.addEventListener('touchmove', (e) => {
+        currentX = e.touches[0].clientX;
+        const diff = currentX - startX;
+        
+        // Only allow swipe to close from the left edge
+        if (diff > 0 && currentX < 50) {
+            this.mobileFilterOverlay.style.transform = `translateX(${diff}px)`;
+        }
+    });
+
+    this.mobileFilterOverlay.addEventListener('touchend', (e) => {
+        const diff = currentX - startX;
+        const swipeThreshold = 100;
+
+        if (diff > swipeThreshold) {
+            this.closeMobileFilter();
+        } else {
+            this.mobileFilterOverlay.style.transform = 'translateX(0)';
+        }
+        
+        // Reset transform after animation
+        setTimeout(() => {
+            this.mobileFilterOverlay.style.transform = '';
+        }, 300);
+    });
+}
+
+openMobileFilter() {
+    this.mobileFilterOverlay.classList.add('active');
+    this.mobileFilterBackdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+closeMobileFilter() {
+    this.mobileFilterOverlay.classList.remove('active');
+    this.mobileFilterBackdrop.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+applyMobileFilter() {
+    const activeFilter = document.querySelector('.mobile-filter-btn.active').dataset.filter;
+    const activeMediaType = document.querySelector('.mobile-media-type-btn.active').dataset.type;
+    
+    // Apply filters
+    state.currentFilter = activeFilter;
+    state.currentMediaType = activeMediaType;
+    
+    // Update main filter buttons state (for consistency)
+    this.updateActiveFilterButtons();
+    this.updateActiveMediaTypeButtons();
+    
+    // Render gallery with new filters
+    this.renderGallery();
+    
+    // Close mobile filter
+    this.closeMobileFilter();
+}
+
+// Update init method to include mobile filter setup
+async init() {
+    this.showLoading();
+    this.setupEventListeners();
+    this.setupMobileFilter(); // Add this line
+    
+    // Add resize listener
+    this.lastWindowWidth = window.innerWidth;
+    window.addEventListener('resize', () => this.handleResize());
+    
+    try {
+        await this.loadGalleryData();
+        this.updateConnectionStatus('connected');
+    } catch (error) {
+        console.error('Failed to load gallery data:', error);
+        await this.loadFallbackData();
+        this.updateConnectionStatus('error');
+    } finally {
+        this.hideLoading();
+    }
+}
+
+// Update handleResize to sync mobile filter state
+handleResize() {
+    if (this.lastWindowWidth !== window.innerWidth) {
+        this.lastWindowWidth = window.innerWidth;
+        
+        // Close mobile filter when switching to desktop
+        if (window.innerWidth > 768 && this.mobileFilterOverlay.classList.contains('active')) {
+            this.closeMobileFilter();
+        }
+        
+        this.renderGallery();
+    }
+}
+
     // ===== FILTERING =====
     applyFilters() {
         state.filteredMedia = state.galleryData.filter(item => {
@@ -467,23 +619,35 @@ class GalleryApp {
         DOM.galleryGrid.style.display = 'grid';
     }
 
-    updateConnectionStatus(status) {
-        DOM.connectionStatus.className = 'connection-status';
-        
-        switch (status) {
-            case 'connected':
-                DOM.connectionStatus.innerHTML = '<i class="fas fa-wifi"></i><span>Terhubung</span>';
-                break;
-            case 'error':
-                DOM.connectionStatus.innerHTML = '<i class="fas fa-exclamation-triangle"></i><span>Menggunakan data lokal</span>';
-                DOM.connectionStatus.classList.add('error');
-                break;
-            case 'offline':
-                DOM.connectionStatus.innerHTML = '<i class="fas fa-wifi-slash"></i><span>Mode offline</span>';
-                DOM.connectionStatus.classList.add('offline');
-                break;
-        }
+updateConnectionStatus(status) {
+    // Reset kelas dan tampilkan
+    DOM.connectionStatus.className = 'connection-status';
+    DOM.connectionStatus.classList.add('show');
+    
+    // Clear timeout sebelumnya jika ada
+    if (this.connectionStatusTimeout) {
+        clearTimeout(this.connectionStatusTimeout);
     }
+    
+    switch (status) {
+        case 'connected':
+            DOM.connectionStatus.innerHTML = '<i class="fas fa-wifi"></i><span>Terhubung</span>';
+            break;
+        case 'error':
+            DOM.connectionStatus.innerHTML = '<i class="fas fa-exclamation-triangle"></i><span>Menggunakan data lokal</span>';
+            DOM.connectionStatus.classList.add('error');
+            break;
+        case 'offline':
+            DOM.connectionStatus.innerHTML = '<i class="fas fa-wifi-slash"></i><span>Mode offline</span>';
+            DOM.connectionStatus.classList.add('offline');
+            break;
+    }
+    
+    // Auto hide setelah 5 detik
+    this.connectionStatusTimeout = setTimeout(() => {
+        DOM.connectionStatus.classList.remove('show');
+    }, 5000);
+}
 
     // ===== EVENT HANDLERS =====
     setupEventListeners() {
