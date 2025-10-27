@@ -39,7 +39,7 @@
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     margin-bottom: 30px;
-    border: 2px solid
+    border: 1px solid
 }
 
 body.dark-theme .comment-form-container {

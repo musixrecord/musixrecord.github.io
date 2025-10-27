@@ -152,7 +152,7 @@ const translations = {
         'achievements.item2.description': 'Dipercaya oleh lebih dari 50 musisi dan artis',
         'achievements.item3.title': 'Rating 4.5/5',
         'achievements.item3.description': 'Kepuasan klien dengan rating hampir sempurna',
-        'achievements.item4.title': '+10 Penghargaan',
+        'achievements.item4.title': '10+ Penghargaan',
         'achievements.item4.description': 'Penghargaan di bidang produksi musik',
         
         // Contact Section
@@ -385,7 +385,7 @@ const translations = {
         'achievements.item2.description': 'Trusted by more than 50 musicians and artists',
         'achievements.item3.title': '4.5/5 Rating',
         'achievements.item3.description': 'Client satisfaction with near-perfect rating',
-        'achievements.item4.title': '+10 Awards',
+        'achievements.item4.title': '10+ Awards',
         'achievements.item4.description': 'Awards in music production field',
         
         // Contact Section
