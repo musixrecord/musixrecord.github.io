@@ -334,7 +334,7 @@ body.dark-theme .comment-text {
 /* Messages */
 .loading, .no-comments, .error {
     text-align: center;
-    padding: 40px 20px;
+    padding: 0px 0px;
     font-size: 1.1em;
     border-radius: 10px;
     flex-shrink: 0;

@@ -236,7 +236,7 @@ body.dark-theme .filter-btn {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 10px;
+    padding: 7px 7px;
     border: none;
     border-radius: var(--border-radius-lg);
     background: var(--light-bg);
@@ -393,16 +393,16 @@ body.dark-theme .video-item {
     color: white;
     padding: 4px 12px;
     border-radius: var(--border-radius-lg);
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .media-type-badge {
     display: inline-block;
     padding: 4px 12px;
     border-radius: var(--border-radius-lg);
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     font-weight: 500;
     text-transform: uppercase;
     margin-left: 8px;
@@ -444,21 +444,26 @@ body.dark-theme .video-item {
     z-index: 1000;
     opacity: 0;
     transition: opacity 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .lightbox.active {
-    display: inline-flex;
+    display: flex;
     opacity: 1;
 }
 
 .lightbox-content {
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 90vw;
+    max-height: 90vh;
     background: var(--light-surface);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
 }
 
 body.dark-theme .lightbox-content {
@@ -522,22 +527,26 @@ body.dark-theme .lightbox-content {
 .lightbox-media {
     position: relative;
     max-width: 100%;
-    max-height: 70vh;
+    max-height: calc(70vh - 120px);
     display: flex;
     justify-content: center;
     align-items: center;
     background: #000;
+    overflow: hidden;
 }
 
 .lightbox-image {
     max-width: 100%;
-    max-height: 70vh;
+    max-height: 100%;
     object-fit: contain;
+    display: block;
 }
 
 .lightbox-info {
     padding: 20px;
     background: var(--light-surface);
+    max-height: 30vh;
+    overflow-y: auto;
 }
 
 body.dark-theme .lightbox-info {
@@ -589,18 +598,28 @@ body.dark-theme .lightbox-meta {
     z-index: 1000;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .video-modal.active {
-    display: inline-flex;
+    display: flex;
 }
 
 .modal-content {
-    width: 90%;
+    width: 90vw;
     max-width: 900px;
     position: relative;
-    animation: scaleIn 0.3s ease;
+    background: var(--light-surface);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-height: 90vh;
+}
+
+body.dark-theme .modal-content {
+    background: var(--dark-surface);
 }
 
 .close-modal {
@@ -676,8 +695,7 @@ body.dark-theme .lightbox-meta {
     padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
-    border-radius: var(--border-radius);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    background: #000;
 }
 
 .video-wrapper iframe {
@@ -687,14 +705,14 @@ body.dark-theme .lightbox-meta {
     width: 100%;
     height: 100%;
     border: none;
-    border-radius: var(--border-radius);
 }
 
 /* Video Info */
 .video-info {
     padding: 20px;
     background: var(--light-surface);
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    max-height: 30vh;
+    overflow-y: auto;
 }
 
 body.dark-theme .video-info {
@@ -953,11 +971,29 @@ body.dark-theme .empty-state {
     }
 
     .lightbox-content,
-    .video-modal-content {
-        max-width: 95%;
-        max-height: 95%;
+    .video-modal-content .modal-content {
+        max-width: 95vw;
+        max-height: 95vh;
     }
 
+    .lightbox-media {
+        max-height: calc(60vh - 100px);
+    }
+    
+    .lightbox-info,
+    .video-info {
+        padding: 15px;
+        max-height: 35vh;
+    }
+    
+    .lightbox-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .video-info h3 {
+        font-size: 1.3rem;
+    }
+    
     .lightbox-nav {
         width: 40px;
         height: 40px;
@@ -1012,9 +1048,67 @@ body.dark-theme .empty-state {
         height: 200px;
     }
 
+    .lightbox-content,
+    .modal-content {
+        max-width: 98vw;
+        max-height: 98vh;
+    }
+    
+    .lightbox-media {
+        max-height: calc(50vh - 80px);
+    }
+    
+    .lightbox-info,
+    .video-info {
+        padding: 12px;
+        max-height: 40vh;
+    }
+    
+    .lightbox-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .video-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .lightbox-meta,
+    .video-meta {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
     
 
     
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+.lightbox-info::-webkit-scrollbar,
+.video-info::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lightbox-info::-webkit-scrollbar-track,
+.video-info::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+body.dark-theme .lightbox-info::-webkit-scrollbar-track,
+body.dark-theme .video-info::-webkit-scrollbar-track {
+    background: #333;
+}
+
+.lightbox-info::-webkit-scrollbar-thumb,
+.video-info::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.lightbox-info::-webkit-scrollbar-thumb:hover,
+.video-info::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
 }
 
 /* ===== RESPONSIVE STYLES ===== */
@@ -1181,7 +1275,7 @@ body.dark-theme .empty-state {
 
     .gallery-overlay .gallery-title,
     .video-overlay .gallery-title {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .gallery-overlay .gallery-description,
@@ -1192,12 +1286,12 @@ body.dark-theme .empty-state {
 
 /* ===== OVERLAY HEADER ===== */
 .overlay-header {
-    display: flex;
+    display: revert-layer;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 0px;
 }
 
 /* Mobile-specific overlay styles */

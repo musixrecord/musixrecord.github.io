@@ -618,3 +618,4 @@ updateConnectionStatus(status) {
 document.addEventListener('DOMContentLoaded', () => {
     new GalleryApp();
 });
+
