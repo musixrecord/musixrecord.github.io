@@ -447,7 +447,7 @@ body.dark-theme .video-item {
 }
 
 .lightbox.active {
-    display: flex;
+    display: inline-flex;
     opacity: 1;
 }
 
@@ -593,7 +593,7 @@ body.dark-theme .lightbox-meta {
 }
 
 .video-modal.active {
-    display: flex;
+    display: inline-flex;
 }
 
 .modal-content {
