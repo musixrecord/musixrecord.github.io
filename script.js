@@ -38,7 +38,7 @@ const translations = {
         'about.text4List2': 'Format audio dan score (partitur / not balok /  not angka) untuk berbagai instrumen musik vocal, duet, trio, kuartet, hingga orkestra.',
         'about.text5': 'Percayakan dengan pembuatan musik kami yang sudah berpengalaman studi di bidang pendidikan seni musik dan berpengalaman dalam pemesanan pembuatan musik dengan biaya terjangkau berkualitas baik.',
         'about.text6': 'Kami juga menerima jasa mixing dan mastering lagu / musik. dan juga menerima jasa kursus musik privat / home teaching (datang ke rumah sekitar Kota Banjar) untuk berbagai instrumen musik.',
-        'about.text7': '*pembuatan musik sepenuhnya menggunakan AI (artificial intelligence) lebih mengutamakan Manusiawi (Humanize).',
+        'about.text7': '*pembuatan musik tidak sepenuhnya menggunakan AI (artificial intelligence) lebih mengutamakan Manusiawi (Humanize).',
         'about.text8': 'Menyewakan Sound System (dengan paket hemat), alat musik gitar elektrik, bass elektrik, drum elektrik, piano elektrik, dan lain-lain. ',
 
         // Pricing Section
